@@ -29,9 +29,13 @@ import org.eclipse.jetty.server.ServerConnector;
  *
  * @author Leandro Oliveira (leandro@agapsys.com)
  */
-public class TestingContainer extends ServletContainer<TestingContainer> {
+public class TestingServletContainer<TC extends TestingServletContainer<TC>> extends ServletContainer<TestingServletContainer<TC>> {
 
-    public TestingContainer(Class<? extends HttpServlet>...servlets) {
+    public static TestingServletContainer<?> newInstance(Class<? extends HttpServlet>...servlets) {
+        return new TestingServletContainer(servlets);
+    }
+
+    protected TestingServletContainer(Class<? extends HttpServlet>...servlets) {
         super(servlets);
     }
 
