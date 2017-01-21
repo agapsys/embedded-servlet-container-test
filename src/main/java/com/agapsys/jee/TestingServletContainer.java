@@ -32,11 +32,13 @@ import org.eclipse.jetty.server.ServerConnector;
 public class TestingServletContainer<TC extends TestingServletContainer<TC>> extends ServletContainer<TC> {
 
     public static TestingServletContainer<?> newInstance(Class<? extends HttpServlet>...servlets) {
-        return new TestingServletContainer(servlets);
-    }
+        TestingServletContainer tc = new TestingServletContainer<>();
 
-    public TestingServletContainer(Class<? extends HttpServlet>...servlets) {
-        super(servlets);
+        for (Class<? extends HttpServlet> servlet : servlets) {
+            tc.registerServlet(servlet);
+        }
+
+        return tc;
     }
 
     @Override
