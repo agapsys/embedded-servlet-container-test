@@ -21,7 +21,7 @@ limitations under the License.
 
     <groupId>com.agapsys</groupId>
     <artifactId>testing-servlet-container</artifactId>
-    <version>0.1.0-20170322</version>
+    <version>0.1.0-20170513</version>
     <packaging>jar</packaging>
 
     <properties>
@@ -70,7 +70,7 @@ limitations under the License.
         <dependency>
             <groupId>com.agapsys</groupId>
             <artifactId>simple-http-client</artifactId>
-            <version>[0.1.0, 1.0.0)</version>
+            <version>0.1.0-20170513</version>
         </dependency>
     </dependencies>
 </project>
